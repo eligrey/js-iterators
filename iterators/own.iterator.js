@@ -1,6 +1,6 @@
 /*
  * JavaScript Object own properties iterator
- * Requires JavaScript 1.8+
+ * Requires JavaScript 1.7+
  *
  * 2010-03-11
  * 
@@ -12,20 +12,16 @@
 
 "use strict";
 
-(function () {
-	var objProto = Object.prototype,
-	hasOwnProp = objProto.hasOwnProperty,
-	iterMethod = "__iterator__",
-	iterator = function (flag) {
-		delete objProto[iterMethod];
-		
-		for (let prop in this) {
-			if (hasOwnProp.call(this, prop)) {
+Object.prototype.__iterator__ = function (flag) {
+	var iter = new Iterator(this, true),
+	prop;
+	
+	try {
+		while (true) {
+			prop = iter.next();
+			if (Object.prototype.hasOwnProperty.call(this, prop)) {
 				yield flag ? prop : this[prop];
 			}
 		}
-		
-		objProto[iterMethod] = iterator;
-	};
-	objProto[iterMethod] = iterator;
-}());
+	} catch (ex if ex instanceof StopIteration) {}
+};
