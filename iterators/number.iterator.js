@@ -30,10 +30,6 @@ Number.prototype.__iterator__ = function (flag) {
 	}
 };
 
-// __iterable__ is not defined as would break Array(length) support and it creeps into
-// the feature set of Range.
-// for each..in behaves differently than Range and shifts all numbers towards the number.
-
 /* examples:
  * [i for (i in 5)] is [0,1,2,3,4]
  * [i for each (i in 5)] is [1,2,3,4,5]

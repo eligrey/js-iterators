@@ -44,8 +44,6 @@ Range.prototype = {
 	stop:  0,
 	step:  0,
 	
-	__iterable__: true,
-	
 	__iterator__: function (flag) {
 		var {start, stop, step} = this;
 	

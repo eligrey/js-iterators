@@ -34,5 +34,3 @@ XPathResult.prototype.__iterator__ = function (flag) {
 	}
 	throw StopIteration;
 };
-
-XPathResult.prototype.__iterable__ = true;

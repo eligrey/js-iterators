@@ -20,5 +20,3 @@ Array.prototype.__iterator__ = function (flag) {
 		yield flag ? item : this[item];
 	}
 };
-
-Array.prototype.__iterable__ = true;

@@ -23,10 +23,6 @@ NodeList.prototype.__iterator__ = function (flag) {
 	}
 }; 
 
-NodeList.prototype.__iterable__ = true;
-
 Node.prototype.__iterator__ = function (flag) {
 	return this.childNodes.__iterator__(flag);
 };
-
-Node.prototype.__iterable__ = true;
