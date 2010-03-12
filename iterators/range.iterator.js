@@ -44,14 +44,14 @@ Range.prototype = {
 	stop:  0,
 	step:  0,
 	
-	__iterator__: function (flag) {
+	__iterator__: function (iterKeys) {
 		var {start, stop, step} = this;
 	
-		if (flag) { // for each..in
+		if (iterKeys) { // for..in
 			for (; start < stop; start += step) {
 				yield start;
 			}
-		} else { // for..in
+		} else { // for each..in
 			for (; start <= stop; start += step) {
 				yield start;
 			}

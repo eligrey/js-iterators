@@ -12,17 +12,17 @@
 
 "use strict";
 
-Number.prototype.__iterator__ = function (flag) {
+Number.prototype.__iterator__ = function (iterKeys) {
 	if (this % 1) {
 		throw new TypeError("Integer expected for number iterator");
 	}
 	
-	var i = 1 - flag,
+	var i = 1 - iterKeys,
 	    j = this + i;
 	
 	if (j < 0) {
-		i = j - i + flag;
-		j = +flag;
+		i = j - i + iterKeys;
+		j = +iterKeys;
 	}
 	
 	for (; i < j; i++) {

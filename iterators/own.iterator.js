@@ -12,7 +12,7 @@
 
 "use strict";
 
-Object.prototype.__iterator__ = function (flag) {
+Object.prototype.__iterator__ = function (iterKeys) {
 	var iter = new Iterator(this, true),
 	prop;
 	
@@ -20,7 +20,7 @@ Object.prototype.__iterator__ = function (flag) {
 		while (true) {
 			prop = iter.next();
 			if (Object.prototype.hasOwnProperty.call(this, prop)) {
-				yield flag ? prop : this[prop];
+				yield iterKeys ? prop : this[prop];
 			}
 		}
 	} catch (ex if ex instanceof StopIteration) {}

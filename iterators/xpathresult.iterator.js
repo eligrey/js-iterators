@@ -14,21 +14,21 @@
 
 "use strict";
 
-XPathResult.prototype.__iterator__ = function (flag) {
+XPathResult.prototype.__iterator__ = function (iterKeys) {
 	var node, i = 0;
 	switch (this.resultType) {
 		case XPathResult.UNORDERED_NODE_ITERATOR_TYPE:
 		case XPathResult.ORDERED_NODE_ITERATOR_TYPE:
 			while (node = this.iterateNext()) {
 				i++;
-				yield flag ? i : node;
+				yield iterKeys ? i : node;
 			}
 			break;
 		
 		case XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE:
 		case XPathResult.ORDERED_NODE_SNAPSHOT_TYPE:
 			for (node = this.snapshotLength; i < node; i++) {
-				yield flag ? i : this.snapshotItem(node);
+				yield iterKeys ? i : this.snapshotItem(node);
 			}
 			break;
 	}

@@ -14,15 +14,15 @@
 
 "use strict";
 
-NodeList.prototype.__iterator__ = function (flag) {
+NodeList.prototype.__iterator__ = function (iterKeys) {
 	var len = this.length,
 	item = 0;
 	
 	for (; item < len; item++) {
-		yield flag ? item : this.item(item);
+		yield iterKeys ? item : this.item(item);
 	}
 }; 
 
-Node.prototype.__iterator__ = function (flag) {
-	return this.childNodes.__iterator__(flag);
+Node.prototype.__iterator__ = function (iterKeys) {
+	return this.childNodes.__iterator__(iterKeys);
 };
