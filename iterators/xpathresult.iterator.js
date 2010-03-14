@@ -10,7 +10,7 @@
  *   See COPYING.md
  */
 
-/*global XPathResult, StopIteration*/
+/*global XPathResult*/
 
 "use strict";
 
