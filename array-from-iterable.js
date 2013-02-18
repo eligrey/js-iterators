@@ -15,7 +15,7 @@
 Array.fromIterable = function (iterable, iterKeys) {
 	var arr = [],
 	// Don't use new Iterator() as it disregards custom iterators
-	iter = Iterator(iterable, arguments.length < 2 ? true : iterKeys);
+	iter = Iterator(iterable, arguments.length < 2 || iterKeys);
 	
 	try {
 		while (true) {
